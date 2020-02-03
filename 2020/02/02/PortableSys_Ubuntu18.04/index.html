@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>便携式ubuntu18.04搭建 · PyppaPig的小站</title>
+    <title>便携式ubuntu18.04搭建（一） · PyppaPig的小站</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >PyppaPig.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">便携式ubuntu18.04搭建</a>
+                <a href="#" class="post-name">便携式ubuntu18.04搭建（一）</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            便携式ubuntu18.04搭建
+            便携式ubuntu18.04搭建（一）
             <!-- 404 -->
             
         </h1>
@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">811</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,15 +401,18 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p><strong>######有关密码、暗号等详见主页置顶文章######</strong></p>
+        <p><strong>##有关密码、暗号等详见主页置顶文章##</strong></p>
 <h1 id="1、主要思路-amp-实现途径"><a href="#1、主要思路-amp-实现途径" class="headerlink" title="1、主要思路&amp;实现途径"></a>1、主要思路&amp;实现途径</h1><blockquote>
-<p>本文意在实现一个可以随身携带的系统，考虑到便携性开源性、以及稳定性，我们选择了Ubuntu18.04LTS系统。本文提到的便携性指的是能够随身携带，并且能在无法使用自己电脑的时候，以他人的电脑硬件为基础，能够使用到几乎完全一样的平台来处理事务。这样，第一节省了适应其他系统的时间，第二也减少了对于新的环境要从新搭建各种编程等的环境的麻烦。</p>
-<p>本文实现该思路的主要途径是通过在u盘上安装一个带有启动引导的系统来实现。U盘采用了高读速的u盘减少性能损失。另外如何在u盘上安装带有启动引导的系统，本文采取了比较巧的办法，将u盘当做物理硬盘挂载到虚拟机上，就相当于完全独立于其他硬盘，这样也不会影响到原来的系统，比较的安全。</p>
+<p>&emsp;&emsp;本文意在实现一个可以随身携带的系统，考虑到便携性开源性、以及稳定性，我们选择了Ubuntu18.04LTS系统。本文提到的便携性指的是能够随身携带，并且能在无法使用自己电脑的时候，以他人的电脑硬件为基础，能够使用到几乎完全一样的平台来处理事务。这样，第一节省了适应其他系统的时间，第二也减少了对于新的环境要从新搭建各种编程等的环境的麻烦。</p>
+<p>​       </p>
+<p>&emsp;&emsp;本文实现该思路的主要途径是通过在u盘上安装一个带有启动引导的系统来实现。U盘采用了高读速的u盘减少性能损失。另外如何在u盘上安装带有启动引导的系统，本文采取了比较巧的办法，将u盘当做物理硬盘挂载到虚拟机上，就相当于完全独立于其他硬盘，这样也不会影响到原来的系统，比较的安全。</p>
+<p>​    </p>
+<p>&emsp;&emsp;本篇主要讲材料的准备、VMware环境的安装以及虚拟机的创建，有关如何安装ubuntu系统以及一些其他的问题，将会在后面的文章当中讲到。已经完成本文准备事项的可以直接跳过本篇文章。</p>
 </blockquote>
 <h1 id="2、材料准备"><a href="#2、材料准备" class="headerlink" title="2、材料准备"></a>2、材料准备</h1><blockquote>
 <p>【硬件设施准备】</p>
 <ol>
-<li><p>lenovo小新锐7000  i7-7700HQ  6G  128G+1T  GTX1050  Win10</p>
+<li><p>lenovo小新锐7000  i7-7700HQ  6G  128G+1T  GTX1050  Win10（支持intelvt-x的主板即可）</p>
 </li>
 <li><p>SanDisk 64GB USB3.0 U盘 DD3 （读速150MB/s,用作系统盘压力比较小,另外东价75也是比较性价比高的选择）</p>
 <p><img src="/2020/02/02/PortableSys_Ubuntu18.04/sandisk150.png" alt="sandisk150"></p>
@@ -448,10 +451,10 @@ height:50vh;
 <hr>
 </blockquote>
 <h1 id="3、VMware环境安装"><a href="#3、VMware环境安装" class="headerlink" title="3、VMware环境安装"></a>3、VMware环境安装</h1><blockquote>
-<p>这一步介绍的是VMware Worksation Pro 15的安装过程，已经安装过的小伙伴可以直接跳过这一段去看<a href="#4、VMware虚拟机创建">第四部分</a>“虚拟机的创建”的哟！</p>
+<p>&emsp;&emsp;这一步介绍的是VMware Worksation Pro 15的安装过程，已经安装过的小伙伴可以直接跳过这一段去看<a href="#4、VMware虚拟机创建">第四部分</a>“虚拟机的创建”的哟！</p>
 <hr>
 <ol>
-<li><strong>启动vmware安装程序，点击下一步。</strong><br><img src="https://bt.cangg.cn/data/20200222348496561.png" alt="VMware 15安装过程"></li>
+<li><strong>启动vmware安装程序，点击下一步。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm_install/VM_install01.png" alt="VMware 15安装过程"></li>
 </ol>
 <hr>
 <ol start="2">
@@ -491,8 +494,86 @@ height:50vh;
 </ol>
 <hr>
 </blockquote>
-<p>接下来我们进入虚拟机的创建步骤</p>
-<h1 id="4、VMware虚拟机创建"><a href="#4、VMware虚拟机创建" class="headerlink" title="4、VMware虚拟机创建"></a>4、VMware虚拟机创建</h1>
+<p>&emsp;&emsp;接下来我们进入虚拟机的创建步骤</p>
+<h1 id="4、VMware虚拟机创建"><a href="#4、VMware虚拟机创建" class="headerlink" title="4、VMware虚拟机创建"></a>4、VMware虚拟机创建</h1><blockquote>
+<p>&emsp;&emsp;这一步介绍的是VMware虚拟机的创建过程。</p>
+<hr>
+<ol>
+<li><strong>启动vmware程序，点击创建新的虚拟机。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm01.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="2">
+<li><strong>勾选自定义，点击下一步。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm02.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="3">
+<li><strong>选择workstation 15.x，点击下一步。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm03.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="4">
+<li><strong>勾选稍后安装操作系统，点击下一步。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm04.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="5">
+<li><strong>选择linux，版本选择Ubuntu 64位，点击下一步。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm05.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="6">
+<li><strong>填入合适的虚拟机名称，并选择相关文件的存放路径，点击下一步。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm06.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="7">
+<li><strong>处理器数量选择2，点击下一步。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm07.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="8">
+<li><strong>内存填入3000，点击下一步。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm08.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="9">
+<li><strong>默认选择，点击下一步。</strong><br><img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm09.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="10">
+<li><strong>默认选择，点击下一步。</strong><br>  <img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm10.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="11">
+<li><strong>默认选择，点击下一步。</strong><br>  <img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm11.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="12">
+<li><strong>选择物理磁盘，然后将已经格式化过的高速u盘插入电脑，然后点击下一步。</strong><br>  <img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm12.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="13">
+<li><strong>设备选择最后一个，点击下一步。</strong><br>  <img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm13.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="14">
+<li><strong>为分区信息选择合适的存放路径，点击下一步。</strong><br>  <img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm14.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="15">
+<li><strong>确认信息无误后，点击完成</strong><br>  <img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm15.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="16">
+<li><strong>点击CD/DVD一项</strong><br>  <img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm16.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="17">
+<li><strong>选择使用ISO，并找到之前下载好的Ubuntu镜像文件路径填入，然后点击确定</strong><br>  <img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm17.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+<ol start="18">
+<li><strong>部分电脑没有开启intelvt-x，需要在开机时进入BIOS中，打开主板的intelvt-x功能（下图是以某联想电脑为例，不同的电脑有所不同但是大同小异。例如：下面的电脑进入BIOS之后选择Advanced选项卡，选择其中的CPU Setup选项按Enter键进入，然后将其中的Intel Virtualiaztion Technology选项的Disabled改为Enabled，然后保存设置重启即可）</strong><br>  <img src="/2020/02/02/PortableSys_Ubuntu18.04/vm/vm18.png" alt="VMware 15安装过程"></li>
+</ol>
+<hr>
+</blockquote>
+<p>&emsp;&emsp;至此虚拟机的创建就基本完成了。</p>
+<p>（未完待续，请见下篇文章）</p>
+
     </article>
     <!-- license  -->
     
@@ -500,7 +581,7 @@ height:50vh;
             <p>原文作者：<a href="http://pyppapig.github.io">PyppaPig_小猪Py奇</a>
             <p>原文链接：<a href="http://pyppapig.github.io/2020/02/02/PortableSys_Ubuntu18.04/">http://pyppapig.github.io/2020/02/02/PortableSys_Ubuntu18.04/</a>
             <p>发表日期：<a href="http://pyppapig.github.io/2020/02/02/PortableSys_Ubuntu18.04/">February 2nd 2020, 1:00:00 pm</a>
-            <p>更新日期：<a href="http://pyppapig.github.io/2020/02/02/PortableSys_Ubuntu18.04/">February 2nd 2020, 11:50:39 pm</a>
+            <p>更新日期：<a href="http://pyppapig.github.io/2020/02/02/PortableSys_Ubuntu18.04/">February 3rd 2020, 6:49:04 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -683,7 +764,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2020/02/02/PortableSys_Ubuntu18.04/" >便携式ubuntu18.04搭建</a>
+            <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2020/02/02/PortableSys_Ubuntu18.04/" >便携式ubuntu18.04搭建（一）</a>
         </li>
     
     
